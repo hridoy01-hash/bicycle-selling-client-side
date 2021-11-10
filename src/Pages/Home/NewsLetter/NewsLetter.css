@@ -1,0 +1,27 @@
+.airplan{
+    font-size: 50px;
+    color: dimgrey;
+    
+}
+.ip2 {
+    border-radius: 25px;
+    border: 2px solid rgb(209, 104, 18);
+    padding: 20px; 
+    width: 300px;
+    height: 10px; 
+    margin-left: 10px;  
+    margin-left: 25px; 
+}
+.subscribe{
+    background-color: rgba(0, 128, 0, 0.596);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: cornsilk;
+    
+    
+}
+.iteam{
+    margin: 20px;
+    padding: 20px;
+}

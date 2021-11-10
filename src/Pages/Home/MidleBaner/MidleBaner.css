@@ -1,0 +1,9 @@
+.parent{
+    
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('../../../images/adversite3.jpg');
+    background-attachment: fixed;
+    height: 80vh;
+
+}
