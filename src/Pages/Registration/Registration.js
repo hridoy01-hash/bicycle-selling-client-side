@@ -3,11 +3,15 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import register from '../../images/registration.jpg'
+import Footer from '../Shared/Footer/Footer';
+import Header from '../Shared/Header/Header';
 
 const Registration = () => {
     const {handleName,handleEmail,error,handlePassword,handleSignup,handleGoogleSignIn} = useAuth();
     return (
-        <Container>
+       <div>
+           <Header></Header>
+            <Container>
             <Grid container spacing={2}  >
                 <Grid item sx={{ mt: 5, mb:10 }} xs={12} md={6}>
                     <Typography sx={{textAlign:'center'}} variant="body1" gutterBottom><h3 className="text-center text-muted mb-5"> <span className="fw-bold text-success" style={{fontSize:"30px",fontFamily:'cursive'}}>Registration Please </span></h3></Typography>
@@ -57,6 +61,8 @@ const Registration = () => {
                 </Grid>
             </Grid>
         </Container>
+        <Footer></Footer>
+       </div>
     );
 };
 

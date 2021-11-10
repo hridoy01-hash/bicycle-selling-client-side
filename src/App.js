@@ -10,15 +10,15 @@ import Home from './Pages/Home/Home/Home';
 import Login from './Pages/Login/Login';
 import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
 import Registration from './Pages/Registration/Registration';
-import Footer from './Pages/Shared/Footer/Footer';
-import Header from './Pages/Shared/Header/Header';
+
+
 
 function App() {
   return (
     <div>
       <AuthProvider>
       <Router>
-        <Header></Header>
+        
         <Switch>
           <Route exact path='/'>
             <Home></Home>
@@ -45,7 +45,6 @@ function App() {
             <Registration></Registration>
           </Route>
         </Switch>
-        <Footer></Footer>
       </Router>
       </AuthProvider>
     </div>
