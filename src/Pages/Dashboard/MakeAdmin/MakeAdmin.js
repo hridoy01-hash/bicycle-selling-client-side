@@ -9,6 +9,7 @@ const MakeAdmin = (e) => {
     }
 
     const handleAdmin=()=>{
+        e.preventDefault();
        const user = {email}
         fetch('http://localhost:5000/users/admin',{
             method:'PUT',
@@ -19,7 +20,7 @@ const MakeAdmin = (e) => {
         })
 
 
-        e.preventDefault()
+        
     }
     return (
         <div>
@@ -27,6 +28,7 @@ const MakeAdmin = (e) => {
 
             <form onSubmit={handleAdmin}>
             <TextField
+               required
                 type="email"
                 onBlur={handleOnblur}
                 sx={{ width: '50%', m: 1 }}

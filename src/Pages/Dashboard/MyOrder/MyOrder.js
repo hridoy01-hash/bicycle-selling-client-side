@@ -11,7 +11,7 @@ const MyOrder = () => {
         fetch(`http://localhost:5000/orders/${email}`)
         .then(res=>res.json())
         .then(result=>setMyorders(result))
-    },[email])
+    },[email,myOrders])
     return (
         <div>
            <Container>
