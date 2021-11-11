@@ -16,13 +16,19 @@ const Login = () => {
     const history = useHistory();
     const redirectUri = location.state?.from || '/home'
 
-    const handleGoogleLogin = ()=>{
+   /*  const handleGoogleLogin = ()=>{
 
       handleGoogleSignIn()
       .then(result =>{
         history.push(redirectUri);
       })
+    } */
+
+    const handleSigninGoogle = ()=>{
+      handleGoogleSignIn(location,history);
     }
+
+
     const handleSignin = ()=>{
 
       handleLogin()
@@ -69,9 +75,11 @@ const Login = () => {
                           <Button variant="text">New User? Please Register</Button>
                       </NavLink>
                       <p>------------------------</p>
-                  <Button onClick={handleGoogleLogin} variant="contained">Google Sign In</Button>
+                  <Button onClick={handleSigninGoogle} variant="contained">Google Sign In</Button>
                     </Box>
-                   
+                   {/* 
+                   onClick={handleGoogleLogin}
+                   */}
                     
                 </Grid>
                 <Grid item xs={12} md={6}>

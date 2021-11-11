@@ -2,8 +2,6 @@ import initializationAuthentication from "../Firebase/Firebase.init";
 import { GoogleAuthProvider,getAuth,signInWithPopup,onAuthStateChanged,signOut,createUserWithEmailAndPassword,signInWithEmailAndPassword,updateProfile } from "firebase/auth";
 import { useEffect, useState } from "react";
 
-
-
 initializationAuthentication();
 
 const useFirebase=()=>{
@@ -13,15 +11,26 @@ const useFirebase=()=>{
     const [name,setName] = useState('')
     const [error,setError] = useState('')
     const [isLoading, setIsLoading] = useState(true);
+    const [admin,setAdmin] = useState(false);
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
     
 
     //handleGoogleSignIn
-    const handleGoogleSignIn =()=>{
+    const handleGoogleSignIn =(location,history)=>{
        setIsLoading(true);
-      return signInWithPopup(auth,googleProvider)
+      // return signInWithPopup(auth,googleProvider)
+      signInWithPopup(auth, googleProvider)
+      .then((result) => {
+        const user = result.user;
+        saveUser(user.email,user.displayName,'PUT')
         
+        const destination = location?.state?.from || '/'
+        history.replace(destination);
+    
+        
+      })
+      
         .catch((error) => {
           const errorMessage = error.message;
         setError(errorMessage);
@@ -44,26 +53,28 @@ const useFirebase=()=>{
     const handlePassword=(e)=>{
     setPassword(e.target.value)
     }
+
     //update user name
     const handleUserName =()=>{
       updateProfile(auth.currentUser, {
         displayName:name
       }).then(() => {
         // Profile updated!
-        // ...
       }).catch((error) => {
         const errorMessage = error.message;
       setError(errorMessage);
       });
-    }
+    } 
 
    const handleSignup=()=>{
     setIsLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
     .then((result) => {
-      handleUserName();
+      handleUserName(); 
       const user = result.user
-      setUser(user)
+      setUser(email);
+      //save customer info datbase
+      saveUser(user.email,name,'POST');
     })
     .catch((error) => {
       const errorMessage = error.message;
@@ -114,13 +125,39 @@ const useFirebase=()=>{
       setError(errorMessage);
       })
       .finally(() => setIsLoading(false));
-   }
+   };
+
+   //dataload for check admin or not
+
+   useEffect(()=>{
+     fetch(`http://localhost:5000/users/${user.email}`)
+     .then(res=>res.json())
+     .then(data =>setAdmin(data.admin))
+      
+   },[user.email])
+
+   //save user in database
+
+   const saveUser = (email,displayName,method)=>{
+     const user = {email,displayName}
+     fetch('http://localhost:5000/users',{
+       method:method,
+       headers:{
+         'content-type':'application/json'
+       },
+       body:JSON.stringify(user)
+     })
+     .then(res=>res.json())
+     .then()
+   };
+   
 
 
     return{
         user,
         isLoading,
         error,
+        admin,
         handleGoogleSignIn,
         logout,
         handleEmail,
@@ -128,6 +165,8 @@ const useFirebase=()=>{
         handleSignup,
         handleLogin,
         handleName,
+        
+
     }
  
 

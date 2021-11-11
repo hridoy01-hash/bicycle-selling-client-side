@@ -23,7 +23,7 @@ const Services = () => {
          
             <Row xs={1} md={3} className="g-4">
             {
-                products.map((product,index)=><Service product={product} key={product._id} ></Service>)
+                products.slice(0,6).map((product)=><Service product={product} key={product._id} ></Service>)
             }
 
            </Row>

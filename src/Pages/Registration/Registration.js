@@ -8,6 +8,7 @@ import Header from '../Shared/Header/Header';
 
 const Registration = () => {
     const {handleName,handleEmail,error,handlePassword,handleSignup,handleGoogleSignIn} = useAuth();
+    
     return (
        <div>
            <Header></Header>

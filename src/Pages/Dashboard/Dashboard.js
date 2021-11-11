@@ -11,6 +11,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { NavLink } from 'react-router-dom';
+import dashboard from '../../images/dashboard2.jpg'
 import {
     Switch,
     Route,
@@ -20,7 +21,11 @@ import Payment from './Payment/Payment';
 import MyOrder from './MyOrder/MyOrder';
 import Review from './Review/Review';
 import useAuth from '../../hooks/useAuth';
-import { Button} from '@mui/material';
+import { Button, Paper} from '@mui/material';
+import MakeAdmin from './MakeAdmin/MakeAdmin';
+import ManageOrder from './ManageOrder/ManageOrder';
+import ManageProduct from './ManageProduct/ManageProduct';
+import AddProduct from './AddProduct/AddProduct';
 const drawerWidth = 240;
 
 function Dashboard(props) {
@@ -31,27 +36,50 @@ function Dashboard(props) {
     setMobileOpen(!mobileOpen);
     
   };
-  const {logout} = useAuth();
+  const {logout,admin} = useAuth();
+  console.log(admin);
+  
 
   const drawer = (
       
     <div>
-      <Toolbar />
+      <Toolbar>
+        <Typography variant='h3'>Hello</Typography>
+      </Toolbar>
+      
       <Divider />
       <List>
         <ul>
-            <li style={{textDecoration:"none",fontSize:"20px", marginRight:"10px",padding:"6px",color:"white",}}><NavLink to='/home'style={{textDecoration:"none",fontSize:"20px", marginRight:"10px",padding:"6px",color:"black",}}>Back Home</NavLink></li>
+        <li style={{textDecoration:"none",fontSize:"20px", marginRight:"10px",padding:"6px",color:"white",}}><NavLink to='/home'style={{textDecoration:"none",fontSize:"20px", marginRight:"10px",padding:"6px",color:"black",fontWeight:'bold'}}>Back Home <i class="fas fa-home"></i></NavLink></li>
 
-            <li style={{textDecoration:"none",fontSize:"20px", marginRight:"10px",padding:"6px",color:"white",}}><NavLink style={{textDecoration:"none",fontSize:"20px", marginRight:"10px",padding:"6px",color:"black",}} 
-            to={`${url}/pay`}>Pay</NavLink></li>
+        { !admin? <Box>
+        <li style={{textDecoration:"none",fontSize:"20px", marginRight:"10px",padding:"6px",color:"white",}}><NavLink style={{textDecoration:"none",fontSize:"20px", marginRight:"10px",padding:"6px",color:"black",fontWeight:'bold'}} 
+        to={`${url}/pay`}>Payment <i class="fab fa-cc-amazon-pay"></i></NavLink></li>
 
-            <li style={{textDecoration:"none",fontSize:"20px", marginRight:"10px",padding:"6px",color:"white",}}><NavLink style={{textDecoration:"none",fontSize:"20px", marginRight:"10px",padding:"6px",color:"black",}} 
-            to={`${url}/myorder`}>My Order</NavLink></li>
+        <li style={{textDecoration:"none",fontSize:"20px", marginRight:"10px",padding:"6px",color:"white",}}><NavLink style={{textDecoration:"none",fontSize:"20px", marginRight:"10px",padding:"6px",color:"black",fontWeight:'bold'}} 
+        to={`${url}/myorder`}>My Order <i class="fas fa-folder-plus"></i></NavLink></li>
 
-            <li style={{textDecoration:"none",fontSize:"20px", marginRight:"10px",padding:"6px",color:"white",}}><NavLink style={{textDecoration:"none",fontSize:"20px", marginRight:"10px",padding:"6px",color:"black",}} 
-            to={`${url}/review`}>Review</NavLink></li>
+        <li style={{textDecoration:"none",fontSize:"20px", marginRight:"10px",padding:"6px",color:"white",}}><NavLink style={{textDecoration:"none",fontSize:"20px", marginRight:"10px",padding:"6px",color:"black",fontWeight:'bold'}} 
+        to={`${url}/review`}>Review </NavLink></li>
+           </Box>
+           :
+             
+         <Box>
+         <li style={{textDecoration:"none",fontSize:"20px", marginRight:"10px",padding:"6px",color:"white",}}><NavLink style={{textDecoration:"none",fontSize:"20px", marginRight:"10px",padding:"6px",color:"black",fontWeight:'bold'}} 
+          to={`${url}/makeadmin`}>Make Admin </NavLink></li>
+         <li style={{textDecoration:"none",fontSize:"20px", marginRight:"10px",padding:"6px",color:"white",}}><NavLink style={{textDecoration:"none",fontSize:"20px", marginRight:"10px",padding:"6px",color:"black",fontWeight:'bold'}} 
+          to={`${url}/manageorder`}>Manage Order </NavLink></li>
+         <li style={{textDecoration:"none",fontSize:"20px", marginRight:"10px",padding:"6px",color:"white",}}><NavLink style={{textDecoration:"none",fontSize:"20px", marginRight:"10px",padding:"6px",color:"black",fontWeight:'bold'}} 
+          to={`${url}/manageproduct`}>Manage Product</NavLink></li>
+         <li style={{textDecoration:"none",fontSize:"20px", marginRight:"10px",padding:"6px",color:"white",}}><NavLink style={{textDecoration:"none",fontSize:"20px", marginRight:"10px",padding:"6px",color:"black",fontWeight:'bold'}} 
+          to={`${url}/addproduct`}>Add Product</NavLink></li>
+         </Box>}
+           
 
-            <li style={{textDecoration:"none",fontSize:"20px", marginRight:"10px",padding:"6px",color:"white",}}> <Button variant="contained" onClick={logout} >Logout</Button> </li>
+
+          
+         
+            <li style={{textDecoration:"none",fontSize:"20px", marginRight:"10px",padding:"6px",color:"white",}}> <Button variant="contained" onClick={logout} >Logout<i class="fas fa-sign-out-alt"></i></Button> </li>
    
         
         </ul>
@@ -126,6 +154,7 @@ function Dashboard(props) {
         sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
       >
         <Toolbar />
+        <Typography variant="h5" style={{marginLeft:'400px',fontWeight:"bold",color:'red'}}>WellCome To Your DashBoard</Typography>
         <Switch>
         <Route path={`${path}/pay`}>
           <Payment></Payment>
@@ -136,6 +165,19 @@ function Dashboard(props) {
         <Route path={`${path}/review`}>
           <Review></Review>
         </Route>
+        <Route path={`${path}/makeadmin`}>
+          <MakeAdmin></MakeAdmin>
+        </Route>
+        <Route path={`${path}/manageorder`}>
+          <ManageOrder></ManageOrder>
+        </Route>
+        <Route path={`${path}/manageproduct`}>
+         <ManageProduct></ManageProduct>
+        </Route>
+        <Route path={`${path}/addproduct`}>
+         <AddProduct></AddProduct>
+        </Route>
+
       </Switch>
       </Box>
     </Box>
