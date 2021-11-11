@@ -2,7 +2,7 @@ import React from 'react';
 import { Container } from 'react-bootstrap';
 
 
-const MyOrderTable = (props) => {
+const ManageOrderTable = (props) => {
     const {email,_id,status} =  props.myOrder
 
     const handleDelete=id=>{
@@ -19,7 +19,24 @@ const MyOrderTable = (props) => {
       }))
 
     };
- 
+
+    const handleUpdate=id=>{
+       
+      fetch(`http://localhost:5000/orders/${id}`,{
+        method:'PUT',
+        headers:{
+          'content-type':'application/json'
+        }
+      })
+      .then(res=>res.json()
+      .then(result=>{
+
+      }))
+
+      
+
+    }
+    
    
     return (
         <Container>
@@ -40,7 +57,7 @@ const MyOrderTable = (props) => {
       <td>{email}</td>
       <td>{props.myOrder?.product?.productName}</td>
       <td>$ {props.myOrder?.product?.productPrice}</td>
-      <td> <button className="btn btn-warning ">{status}</button> 
+      <td> <button onClick={()=>handleUpdate(_id)} className="btn btn-warning ">{status}</button> 
       <button onClick={()=>handleDelete(_id)} className="btn btn-danger ms-3">DELETE</button></td>
     </tr>
     <tr>
@@ -58,4 +75,4 @@ const MyOrderTable = (props) => {
     );
 };
 
-export default MyOrderTable;
+export default ManageOrderTable;

@@ -3,7 +3,7 @@ import { Card, Col,Button } from 'react-bootstrap';
 
 
 const ShowProducts = (props) => {
-    const {productName,productDescription,productImg,productPrice,_id} = props.product
+    const {productName,productDescription,productImg,productPrice} = props.product
     return (
         <div>
            

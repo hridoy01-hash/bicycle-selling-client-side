@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from 'react';
-import MyOrderTable from '../MyOrderTable/MyOrderTable';
+import ManageOrderTable from '../ManageOrderTable/ManageOrderTable';
+
 
 const ManageOrder = () => {
     const [myOrders,setMyorders] = useState([]);
@@ -13,7 +14,7 @@ const ManageOrder = () => {
             <h3 className="text-center text-muted mb-5 mt-3"> <span className="fw-bold text-danger" style={{fontSize:"30px"}}>Total Order : </span> {myOrders.length}</h3>
 
             {
-                myOrders.map(myOrder=><MyOrderTable myOrder={myOrder} key={myOrder._id}></MyOrderTable>)
+                myOrders.map(myOrder=><ManageOrderTable myOrder={myOrder} key={myOrder._id}></ManageOrderTable>)
             }
             
         </div>
