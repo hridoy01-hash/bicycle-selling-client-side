@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card,Button } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import Rating from 'react-rating'
 
 
@@ -11,20 +11,25 @@ const ShowReview = (props) => {
     
     return (
         <div>
-           <Card className="text-center h-100">
+           <Card style={{backgroundColor:'#A0C3C3'}} className="text-center h-100">
   <Card.Body>
     <Card.Title>{name}</Card.Title>
     <Card.Text>
       {description}
     </Card.Text>
-    <h5 className="text-center ">
-        <Rating
-            initialRating={rating}
-            emptySymbol="far fa-star"
-            fullSymbol="fas fa-start"
-            readonly>
+    
+       <p style={{color:'green',fontSize:'10px'}}>
+       <Rating
+        
+        initialRating={rating}
+        emptySymbol="fa fa-star-o fa-2x"
+        fullSymbol="fa fa-star fa-2x"
+       readonly
+           >
         </Rating>
-    </h5>
+       </p>
+        
+    
   </Card.Body>
 </Card>
 

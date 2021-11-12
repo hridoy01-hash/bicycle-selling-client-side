@@ -9,7 +9,7 @@ const Service = (props) => {
         <div>
           <Fade right>
           <Col>
-      <Card className="text-center shadow mb-3 mt-3 bg-body rounded" style={{minHeight:"400px"}}>
+      <Card  className="text-center shadow mb-3 mt-3 bg-body rounded" style={{minHeight:"400px"}}>
        <div className='img-parent'><Card.Img className='cart-img' variant="top" src={productImg} style={{height:"200px"}} /></div>
         <Card.Body>
           <Card.Title className="fw-bold">{productName}</Card.Title>

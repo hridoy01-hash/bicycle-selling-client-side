@@ -18,7 +18,8 @@ const Registration = () => {
                     <Typography sx={{textAlign:'center'}} variant="body1" gutterBottom><h3 className="text-center text-muted mb-5"> <span className="fw-bold text-success" style={{fontSize:"30px",fontFamily:'cursive'}}>Registration Please </span></h3></Typography>
                     <p className="text-center text-danger mt-5 "><hr /></p>
                     <Box sx={{textAlign:'center'}}>
-                            <TextField 
+                          
+                           <TextField 
                             required
                             onBlur={handleName}
                             type="text"
@@ -44,6 +45,7 @@ const Registration = () => {
                             variant="outlined" />
 
                         <Button onClick={handleSignup} sx={{ width: '75%', m: 1 }} variant="contained">Register</Button>
+                        
                        <p className="text-danger">{error}</p>
                         <NavLink
                             style={{ textDecoration: 'none' }}
