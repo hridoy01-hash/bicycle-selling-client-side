@@ -9,7 +9,7 @@ const ManageProduct = () => {
         fetch('http://localhost:5000/products')
         .then(res => res.json())
         .then(result =>setProducts(result))
-    },[])
+    },[products]);
     return (
         <div>
             <Container>

@@ -3,7 +3,22 @@ import { Card, Col,Button } from 'react-bootstrap';
 
 
 const ShowProducts = (props) => {
-    const {productName,productDescription,productImg,productPrice} = props.product
+    const {productName,productDescription,productImg,productPrice,_id} = props.product;
+
+const handleProductDelete =id=>{
+   
+  fetch(`http://localhost:5000/products/${id}`,{
+    method:'DELETE',
+    headers:{
+      'content-type':'application/json'
+    },
+  })
+  .then(res=>res.json())
+  .then(result =>{})
+
+
+}
+
     return (
         <div>
            
@@ -18,7 +33,7 @@ const ShowProducts = (props) => {
           </Card.Text>
        
        
-       <Button  style={{width:'100%',fontWeight:'bold'}} variant="outline-success"><i class="fas fa-trash"></i> DELETE PRODUCT </Button>
+       <Button onClick={()=>handleProductDelete(_id)} style={{width:'100%',fontWeight:'bold'}} variant="outline-success"><i class="fas fa-trash"></i> DELETE PRODUCT </Button>
        
        
        
