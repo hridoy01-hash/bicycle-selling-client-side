@@ -16,7 +16,7 @@ const handleProductDelete =id=>{
   })
   .then((willDelete) => {
     if (willDelete) {
-      fetch(`http://localhost:5000/products/${id}`, {
+      fetch(`https://peaceful-reef-33113.herokuapp.com/products/${id}`, {
     method: "DELETE",
     headers: { "Content-type": "application/json" },
     

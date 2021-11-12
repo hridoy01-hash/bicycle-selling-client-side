@@ -17,7 +17,7 @@ const ManageOrderTable = (props) => {
       })
       .then((willDelete) => {
         if (willDelete) {
-          fetch(`http://localhost:5000/orders/${id}`, {
+          fetch(`https://peaceful-reef-33113.herokuapp.com/orders/${id}`, {
         method: "DELETE",
         headers: { "Content-type": "application/json" },
         
@@ -35,7 +35,7 @@ const ManageOrderTable = (props) => {
 
     const handleUpdate=id=>{
        
-      /* fetch(`http://localhost:5000/orders/${id}`,{
+      /* fetch(`https://peaceful-reef-33113.herokuapp.com/orders/${id}`,{
         method:'PUT',
         headers:{
           'content-type':'application/json'
@@ -54,7 +54,7 @@ const ManageOrderTable = (props) => {
       })
       .then((willDelete) => {
         if (willDelete) {
-          fetch(`http://localhost:5000/orders/${id}`, {
+          fetch(`https://peaceful-reef-33113.herokuapp.com/orders/${id}`, {
         method: "PUT",
         headers: { "Content-type": "application/json" },
         

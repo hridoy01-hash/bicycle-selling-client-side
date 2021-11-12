@@ -5,7 +5,7 @@ import ManageOrderTable from '../ManageOrderTable/ManageOrderTable';
 const ManageOrder = () => {
     const [myOrders,setMyorders] = useState([]);
     useEffect(()=>{
-        fetch('http://localhost:5000/orders')
+        fetch('https://peaceful-reef-33113.herokuapp.com/orders')
         .then(res=>res.json())
         .then(data=>setMyorders(data));
     },[myOrders])

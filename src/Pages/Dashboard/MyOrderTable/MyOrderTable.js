@@ -7,7 +7,7 @@ const MyOrderTable = (props) => {
     const {email,_id,status} =  props.myOrder
 
     const handleDelete=id=>{
-     /*  fetch(`http://localhost:5000/orders/${id}`,{
+     /*  fetch(`https://peaceful-reef-33113.herokuapp.com/orders/${id}`,{
         method:'DELETE',
         headers:{
           'content-type':'application/json'
@@ -28,7 +28,7 @@ const MyOrderTable = (props) => {
     })
     .then((willDelete) => {
       if (willDelete) {
-        fetch(`http://localhost:5000/orders/${id}`, {
+        fetch(`https://peaceful-reef-33113.herokuapp.com/orders/${id}`, {
       method: "DELETE",
       headers: { "Content-type": "application/json" },
       

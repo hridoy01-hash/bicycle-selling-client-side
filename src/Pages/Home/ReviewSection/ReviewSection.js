@@ -1,12 +1,12 @@
 import React,{useState,useEffect} from 'react';
-import { Row,Container, Carousel} from 'react-bootstrap';
+import { Row,Container} from 'react-bootstrap';
 import ShowReview from '../ShowReview/ShowReview';
 
 const ReviewSection = () => {
     const [reviews,setReviews] = useState([]);
     useEffect(()=>{
 
-        fetch('http://localhost:5000/review')
+        fetch('https://peaceful-reef-33113.herokuapp.com/reviews')
         .then(res=>res.json())
         .then(result => setReviews(result))
 

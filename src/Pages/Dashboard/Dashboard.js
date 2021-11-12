@@ -11,7 +11,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { NavLink } from 'react-router-dom';
-import dashboard from '../../images/dashboard2.jpg'
+import logo from '../../images/logo-removebg-preview.png'
+import CardMedia from '@mui/material/CardMedia';
 import {
     Switch,
     Route,
@@ -21,11 +22,12 @@ import Payment from './Payment/Payment';
 import MyOrder from './MyOrder/MyOrder';
 import Review from './Review/Review';
 import useAuth from '../../hooks/useAuth';
-import { Button, Paper} from '@mui/material';
+import { Button} from '@mui/material';
 import MakeAdmin from './MakeAdmin/MakeAdmin';
 import ManageOrder from './ManageOrder/ManageOrder';
 import ManageProduct from './ManageProduct/ManageProduct';
 import AddProduct from './AddProduct/AddProduct';
+import AdminRoute from './AdminRoute/AdminRoute';
 const drawerWidth = 240;
 
 function Dashboard(props) {
@@ -36,7 +38,7 @@ function Dashboard(props) {
     setMobileOpen(!mobileOpen);
     
   };
-  const {logout,admin} = useAuth();
+  const {logout,admin,user} = useAuth();
   console.log(admin);
   
 
@@ -44,7 +46,12 @@ function Dashboard(props) {
       
     <div>
       <Toolbar>
-        <Typography variant='h3'>Hello</Typography>
+      <CardMedia
+          component="img"
+          height="100"
+          image={logo}
+          alt="green iguana"
+        />
       </Toolbar>
       
       <Divider />
@@ -113,7 +120,7 @@ function Dashboard(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Dashboard
+           WELCOME BACK {user.displayName}
           </Typography>
         </Toolbar>
       </AppBar>
@@ -165,18 +172,18 @@ function Dashboard(props) {
         <Route path={`${path}/review`}>
           <Review></Review>
         </Route>
-        <Route path={`${path}/makeadmin`}>
+        <AdminRoute path={`${path}/makeadmin`}>
           <MakeAdmin></MakeAdmin>
-        </Route>
-        <Route path={`${path}/manageorder`}>
+        </AdminRoute>
+        <AdminRoute path={`${path}/manageorder`}>
           <ManageOrder></ManageOrder>
-        </Route>
-        <Route path={`${path}/manageproduct`}>
+        </AdminRoute>
+        <AdminRoute path={`${path}/manageproduct`}>
          <ManageProduct></ManageProduct>
-        </Route>
-        <Route path={`${path}/addproduct`}>
+        </AdminRoute>
+        <AdminRoute path={`${path}/addproduct`}>
          <AddProduct></AddProduct>
-        </Route>
+        </AdminRoute>
 
       </Switch>
       </Box>

@@ -8,6 +8,7 @@ import Dashboard from './Pages/Dashboard/Dashboard';
 import ExploreMore from './Pages/ExploreMore/ExploreMore';
 import Home from './Pages/Home/Home/Home';
 import Login from './Pages/Login/Login';
+import NotFound from './Pages/NotFound/NotFound';
 import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
 import Registration from './Pages/Registration/Registration';
 
@@ -43,6 +44,9 @@ function App() {
           </Route>
           <Route path="/register">
             <Registration></Registration>
+          </Route>
+          <Route path="*">
+            <NotFound></NotFound>
           </Route>
         </Switch>
       </Router>
