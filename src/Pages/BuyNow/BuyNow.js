@@ -7,6 +7,7 @@ import useAuth from '../../hooks/useAuth';
 import { Link } from 'react-router-dom';
 import Header from '../Shared/Header/Header';
 import Footer from '../Shared/Footer/Footer';
+import swal from 'sweetalert';
 
 const BuyNow = () => {
     const {id} = useParams();
@@ -19,7 +20,7 @@ const BuyNow = () => {
     const {user} = useAuth();
     const {productName,productDescription,productImg,productPrice} = product;
 
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit,reset } = useForm();
    const onSubmit = data => {
        console.log(data);
     const {customername,email,phone,address} = data;
@@ -33,7 +34,19 @@ const BuyNow = () => {
            body:JSON.stringify(newOrder)
        })
        .then(res=>res.json())
-       .then()
+       .then(result=>{
+        if(result.insertedId){
+          swal({
+              title: "Order Placed Success!",
+              text: "Thanks For Your Order!",
+              icon: "success",
+              button: "Aww yiss!",
+            });
+
+          reset();
+
+      }  
+       })
    }
     return (
         <div>

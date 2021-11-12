@@ -66,13 +66,15 @@ const useFirebase=()=>{
       });
     } 
 
-   const handleSignup=()=>{
+   const handleSignup=(history,location)=>{
     setIsLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
     .then((result) => {
       handleUserName(); 
       const user = result.user
-      setUser(email);
+      setUser(user);
+      const destination = location?.state?.from || '/'
+      history.replace(destination)
       //save customer info datbase
       saveUser(user.email,name,'POST');
     })

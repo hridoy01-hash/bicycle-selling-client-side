@@ -11,7 +11,7 @@ const ShowReview = (props) => {
     
     return (
         <div>
-           <Card style={{backgroundColor:'#A0C3C3'}} className="text-center h-100">
+           <Card style={{backgroundColor:'#A0C3C3'}} className="text-center  h-100">
   <Card.Body>
     <Card.Title>{name}</Card.Title>
     <Card.Text>

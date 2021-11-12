@@ -1,20 +1,34 @@
 import React from 'react';
 import { Card, Col,Button } from 'react-bootstrap';
+import swal from 'sweetalert';
 
 
 const ShowProducts = (props) => {
     const {productName,productDescription,productImg,productPrice,_id} = props.product;
 
 const handleProductDelete =id=>{
-   
-  fetch(`http://localhost:5000/products/${id}`,{
-    method:'DELETE',
-    headers:{
-      'content-type':'application/json'
-    },
+  swal({
+    title: "Are you sure?",
+    text: "Once deleted, you will not be able to recover this imaginary file!",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
   })
-  .then(res=>res.json())
-  .then(result =>{})
+  .then((willDelete) => {
+    if (willDelete) {
+      fetch(`http://localhost:5000/products/${id}`, {
+    method: "DELETE",
+    headers: { "Content-type": "application/json" },
+    
+  })
+    .then((res) => res.json())
+    .then((result) => {
+         
+    });
+    } else {
+      swal("Your imaginary file is safe!");
+    }
+  });
 
 
 }

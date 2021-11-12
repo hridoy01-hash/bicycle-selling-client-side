@@ -1,8 +1,9 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
+import swal from 'sweetalert';
 import useAuth from '../../../hooks/useAuth'
 const Review = () => {
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit,reset} = useForm();
     const onSubmit = data => {
 
         fetch('http://localhost:5000/review',{
@@ -14,6 +15,19 @@ const Review = () => {
         })
         .then(res=>res.json())
         .then(result =>{
+           
+
+            if(result.insertedId){
+                swal({
+                    title: "Thanks For Awsome Review!",
+                    text: "Your Reviews Added Successfully!",
+                    icon: "success",
+                    button: "Aww yiss!",
+                  });
+
+                reset();
+
+            }    
 
         })
 
@@ -28,6 +42,7 @@ const Review = () => {
                 <input required placeholder="Say Something About Us" {...register("description")} style={{margin:'30px',height:'50px'}} />
                 <input required placeholder="Enter Review Value(0-5)" type="number" {...register("rating")} style={{margin:'30px',height:'50px'}} />
                 <input className="w-50 mx-auto mt-5 ms-5" value="Make Review" type="submit" />
+            
           </form>
         </div>
     );

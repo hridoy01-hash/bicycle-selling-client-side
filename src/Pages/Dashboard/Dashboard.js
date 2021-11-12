@@ -60,7 +60,7 @@ function Dashboard(props) {
         to={`${url}/myorder`}>My Order <i class="fas fa-folder-plus"></i></NavLink></li>
 
         <li style={{textDecoration:"none",fontSize:"20px", marginRight:"10px",padding:"6px",color:"white",}}><NavLink style={{textDecoration:"none",fontSize:"20px", marginRight:"10px",padding:"6px",color:"black",fontWeight:'bold'}} 
-        to={`${url}/review`}>Review </NavLink></li>
+        to={`${url}/review`}>Review <i class="fas fa-search"></i> </NavLink></li>
            </Box>
            :
              

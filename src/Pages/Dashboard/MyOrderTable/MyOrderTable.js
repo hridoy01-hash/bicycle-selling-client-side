@@ -1,13 +1,13 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
+import swal from 'sweetalert';
 
 
 const MyOrderTable = (props) => {
     const {email,_id,status} =  props.myOrder
 
     const handleDelete=id=>{
-
-      fetch(`http://localhost:5000/orders/${id}`,{
+     /*  fetch(`http://localhost:5000/orders/${id}`,{
         method:'DELETE',
         headers:{
           'content-type':'application/json'
@@ -15,12 +15,41 @@ const MyOrderTable = (props) => {
       })
       .then(res=>res.json()
       .then(result=>{
-
       }))
 
-    };
+    }; */
+
+    swal({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover this imaginary file!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        fetch(`http://localhost:5000/orders/${id}`, {
+      method: "DELETE",
+      headers: { "Content-type": "application/json" },
+      
+    })
+      .then((res) => res.json())
+      .then((result) => {
+           
+      });
+      } else {
+        swal("Your imaginary file is safe!");
+      }
+    });
+     
+}
  
    
+
+
+
+
+
     return (
         <Container>
         <div style={{overflow:'scroll'}}>

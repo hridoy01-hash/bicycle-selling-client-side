@@ -16,21 +16,14 @@ const Login = () => {
     const history = useHistory();
     const redirectUri = location.state?.from || '/home'
 
-   /*  const handleGoogleLogin = ()=>{
-
-      handleGoogleSignIn()
-      .then(result =>{
-        history.push(redirectUri);
-      })
-    } */
 
     const handleSigninGoogle = ()=>{
       handleGoogleSignIn(location,history);
     }
 
 
-    const handleSignin = ()=>{
-
+    const handleSignin = (e)=>{
+      e.preventDefault();
       handleLogin()
       .then(result=>{
         history.push(redirectUri);
@@ -47,6 +40,7 @@ const Login = () => {
                     <Typography sx={{textAlign:'center'}} variant="body1" gutterBottom><h3 className="text-center text-muted mb-5"> <span className="fw-bold text-success" style={{fontSize:"30px",fontFamily:'cursive'}}>Login Please </span></h3></Typography>
                     <p className="text-center text-danger mt-5 "><hr /></p>
                     <Box sx={{textAlign:'center'}}>
+                      <form onSubmit={handleSignin}>
                             <TextField 
                             required
                             onBlur={handleEmail}
@@ -67,7 +61,8 @@ const Login = () => {
 
                            <p className="text-danger">{error}</p>
 
-                           <Button onClick={handleSignin} sx={{ width: '75%', m: 1 }} variant="contained">Login</Button>
+                           <Button type="submit" sx={{ width: '75%', m: 1 }} variant="contained">Login</Button>
+                          </form>
                       
                       <NavLink
                           style={{ textDecoration: 'none' }}

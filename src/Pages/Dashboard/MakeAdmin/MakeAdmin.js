@@ -8,7 +8,7 @@ const MakeAdmin = (e) => {
         setEmail(e.target.value);
     }
 
-    const handleAdmin=()=>{
+    const handleAdmin=(e)=>{
         e.preventDefault();
        const user = {email}
         fetch('http://localhost:5000/users/admin',{
@@ -17,6 +17,10 @@ const MakeAdmin = (e) => {
                 'content-type':'application/json'
             },
             body:JSON.stringify(user)
+        })
+        .then(res=>res.json())
+        .then(result=>{
+            
         })
 
 

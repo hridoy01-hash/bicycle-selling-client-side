@@ -1,6 +1,6 @@
 import { Grid,Typography,TextField,Box,Container,Button} from '@mui/material';
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink,useHistory,useLocation } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import register from '../../images/registration.jpg'
 import Footer from '../Shared/Footer/Footer';
@@ -8,6 +8,13 @@ import Header from '../Shared/Header/Header';
 
 const Registration = () => {
     const {handleName,handleEmail,error,handlePassword,handleSignup,handleGoogleSignIn} = useAuth();
+
+    const history = useHistory();
+    const location = useLocation();
+    const userRegister =(e)=>{
+        e.preventDefault();
+       handleSignup(history,location);
+    }
     
     return (
        <div>
@@ -18,7 +25,7 @@ const Registration = () => {
                     <Typography sx={{textAlign:'center'}} variant="body1" gutterBottom><h3 className="text-center text-muted mb-5"> <span className="fw-bold text-success" style={{fontSize:"30px",fontFamily:'cursive'}}>Registration Please </span></h3></Typography>
                     <p className="text-center text-danger mt-5 "><hr /></p>
                     <Box sx={{textAlign:'center'}}>
-                          
+                          <form onSubmit={userRegister}>
                            <TextField 
                             required
                             onBlur={handleName}
@@ -43,8 +50,9 @@ const Registration = () => {
                             id="outlined-basic" 
                             label="Enter Password" 
                             variant="outlined" />
-
-                        <Button onClick={handleSignup} sx={{ width: '75%', m: 1 }} variant="contained">Register</Button>
+               
+                        <Button type='submit' sx={{ width: '75%', m: 1 }} variant="contained">Register</Button>
+                        </form>
                         
                        <p className="text-danger">{error}</p>
                         <NavLink
