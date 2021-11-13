@@ -25,7 +25,7 @@ const useFirebase=()=>{
         const user = result.user;
         saveUser(user.email,user.displayName,'PUT')
         
-        const destination = location?.state?.from || '/dashboard'
+        const destination = location?.state?.from || '/home'
         history.replace(destination);
     
         
@@ -73,7 +73,7 @@ const useFirebase=()=>{
       handleUserName(); 
       const user = result.user
       setUser(user);
-      const destination = location?.state?.from || '/dashboard'
+      const destination = location?.state?.from || '/home'
       history.replace(destination)
       //save customer info datbase
       saveUser(user.email,name,'POST');

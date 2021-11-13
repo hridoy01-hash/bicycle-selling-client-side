@@ -6,7 +6,7 @@ import Rating from 'react-rating'
 
 
 const ShowReview = (props) => {
-    const {name,description,rating} = props.review
+    const {name,description,rating,email} = props.review
 
     
     return (
@@ -14,6 +14,7 @@ const ShowReview = (props) => {
            <Card style={{backgroundColor:'#A0C3C3'}} className="text-center  h-100">
   <Card.Body>
     <Card.Title>{name}</Card.Title>
+    <Card.Title> <small>{email}</small> </Card.Title>
     <Card.Text>
       {description}
     </Card.Text>

@@ -39,6 +39,7 @@ const Review = () => {
             Put A Review </span></h3>
             <form  onSubmit={handleSubmit(onSubmit)}>
                 <input required defaultValue={user.displayName} {...register("name")} style={{margin:'30px',height:'50px'}} />
+                <input required defaultValue={user.email} {...register("email")} style={{margin:'30px',height:'50px'}} />
                 <input required placeholder="Say Something About Us" {...register("description")} style={{margin:'30px',height:'50px'}} />
                 <input required placeholder="Enter Review Value(0-5)" type="number" {...register("rating")} style={{margin:'30px',height:'50px'}} />
                 <input className="w-50 mx-auto mt-5 ms-5" value="Make Review" type="submit" />
