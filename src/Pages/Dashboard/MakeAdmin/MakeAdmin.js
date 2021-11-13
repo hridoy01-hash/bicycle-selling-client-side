@@ -1,5 +1,6 @@
 import { TextField,Button } from '@mui/material';
 import React, { useState } from 'react';
+import swal from 'sweetalert';
 
 const MakeAdmin = (e) => {
 
@@ -20,6 +21,15 @@ const MakeAdmin = (e) => {
         })
         .then(res=>res.json())
         .then(result=>{
+
+            if(result.modifiedCount){
+                swal({
+                    title: "New Admin Make Success!",
+                    text: "Thanks For Stay With Gravity BicycleHub!",
+                    icon: "success",
+                    button: "Aww yiss!",
+                  });
+            }
             
         })
 

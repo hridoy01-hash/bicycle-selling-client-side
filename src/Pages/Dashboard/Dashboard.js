@@ -39,7 +39,7 @@ function Dashboard(props) {
     
   };
   const {logout,admin,user} = useAuth();
-  console.log(admin);
+  
   
 
   const drawer = (

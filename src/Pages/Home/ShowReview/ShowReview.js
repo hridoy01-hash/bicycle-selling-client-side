@@ -19,6 +19,7 @@ const ShowReview = (props) => {
     </Card.Text>
     
        <p style={{color:'green',fontSize:'10px'}}>
+       
        <Rating
         
         initialRating={rating}

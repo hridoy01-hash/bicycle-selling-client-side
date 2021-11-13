@@ -35,16 +35,6 @@ const ManageOrderTable = (props) => {
 
     const handleUpdate=id=>{
        
-      /* fetch(`https://peaceful-reef-33113.herokuapp.com/orders/${id}`,{
-        method:'PUT',
-        headers:{
-          'content-type':'application/json'
-        }
-      })
-      .then(res=>res.json()
-      .then(result=>{
-
-      })) */
       swal({
         title: "Are you sure?",
         text: "Once Approved, you will not be able to recover this imaginary file!",

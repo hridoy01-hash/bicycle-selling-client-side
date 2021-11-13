@@ -22,7 +22,6 @@ const BuyNow = () => {
 
     const { register, handleSubmit,reset } = useForm();
    const onSubmit = data => {
-       console.log(data);
     const {customername,email,phone,address} = data;
     const newOrder = {customername,email,phone,address,product}
     newOrder.status = 'pendening'

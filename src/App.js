@@ -30,9 +30,6 @@ function App() {
           <Route path="/exploremore">
             <ExploreMore></ExploreMore>
           </Route>
-          <Route path="/about">
-            <About></About>
-          </Route>
           <PrivateRoute path="/service/:id">
             <BuyNow></BuyNow>
           </PrivateRoute>

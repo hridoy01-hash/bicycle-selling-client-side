@@ -14,7 +14,7 @@ const Login = () => {
     
     const location = useLocation();
     const history = useHistory();
-    const redirectUri = location.state?.from || '/home'
+    const redirectUri = location.state?.from || '/dashboard'
 
 
     const handleSigninGoogle = ()=>{
