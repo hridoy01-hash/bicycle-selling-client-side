@@ -11,8 +11,10 @@ const ShowReview = (props) => {
     
     return (
         <div>
-           <Card style={{backgroundColor:'#A0C3C3'}} className="text-center  h-100">
-  <Card.Body>
+
+        
+        <Card style={{backgroundColor:'#A0C3C3'}} className="text-center  h-100">
+    <Card.Body>
     <Card.Title>{name}</Card.Title>
     <Card.Title> <small>{email}</small> </Card.Title>
     <Card.Text>
@@ -34,6 +36,8 @@ const ShowReview = (props) => {
     
   </Card.Body>
 </Card>
+    
+    
 
             
         </div>
