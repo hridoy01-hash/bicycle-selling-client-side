@@ -1,6 +1,6 @@
 # GRAVITY BICYCLE HUB
 
-This project was About a Online bicycle sell store hub [Visit Live Site](https://travel-vacation-resort.web.app/).Since 2020, we’ve sell more than 500,000 products in this year.We always provide a unique products and also Qualityfull Products.
+This project was About a Online bicycle sell store hub [Visit Live Site](https://bicycle-selling-website.web.app/).Since 2020, we’ve sell more than 500,000 products in this year.We always provide a unique products and also Qualityfull Products.
 
 ## Important Freatures of this Project
 - This project is a online bicycle sell website.
